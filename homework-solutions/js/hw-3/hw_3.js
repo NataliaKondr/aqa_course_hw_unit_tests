@@ -35,3 +35,6 @@ const sum = n + Number(nn) + Number(nnn);
 console.log(`${n} + ${nn} + ${nnn} = ${sum}`);
 
 
+
+
+
