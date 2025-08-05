@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Сложить строку с четными числами от 10 до 0, разделенными `-` в переменную evenNumbersResult.
  * Переменная для результата `evenNumbersResult` уже создана и содержит пустую строку.
@@ -6,6 +7,13 @@
 
 let evenNumbersResult = '';
 
+for (let i = 10; i >= 0; i -= 2) {
+    evenNumbersResult += i;
+    if (i !== 0) {
+        evenNumbersResult += '-';
+    }
+}
+console.log(evenNumbersResult);
 /**
  * Создать строку из 5 строк с увеличивающимся количеством смайликов ":)".
  * Переменная для результата `smilePatternResult` уже создана и содержит пустую строку.
@@ -18,6 +26,15 @@ let evenNumbersResult = '';
  */
 
 let smilePatternResult = '';
+for (let i = 1; i <= 5; i++) {
+    for (let j = 0; j < i; j++){
+        smilePatternResult += ':)';  
+    }
+    if (i !== 5) {
+        smilePatternResult += '\n'; 
+    }
+}
+   console.log(smilePatternResult);
 
 /**
  * Заменить все пробелы в переменной text на "1".
@@ -27,4 +44,13 @@ let smilePatternResult = '';
 const text = 'Hello! I am a JS student!';
 let replaceSpacesWithOneResult = '';
 
-export { evenNumbersResult, smilePatternResult, replaceSpacesWithOneResult };
+for (let i = 0; i < text.length; i++) {
+    if (text[i] === ' ') {
+        replaceSpacesWithOneResult += '1'; 
+    } else {
+        replaceSpacesWithOneResult += text[i];
+    }
+}
+console.log(replaceSpacesWithOneResult);
+
+module.exports = { evenNumbersResult, smilePatternResult, replaceSpacesWithOneResult };
