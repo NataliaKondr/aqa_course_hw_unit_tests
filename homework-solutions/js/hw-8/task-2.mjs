@@ -19,7 +19,15 @@ const words = [
 ];
 
 function sortedByVowels(wordsArr) {
-  // Ваш код
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+  return [...wordsArr].sort((a,b) => {
+    const countA = a.toLowerCase().split('').filter(char => vowels.includes(char)).length;
+
+    const countB = b.toLowerCase().split('').filter(char => vowels.includes(char)).length;
+
+    return countA - countB;
+  });
 }
 
 export { sortedByVowels };
