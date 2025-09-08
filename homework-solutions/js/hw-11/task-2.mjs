@@ -7,25 +7,30 @@ class Employee {
     this.#salary = salary;
   };
 
-  get firstName (){
+  _validateName(value, fieldName) {
+    if (!value || typeof value !== 'string' || value.length < 2 || value.length > 50 || !/^[A-Za-z]+$/.test(value)) {
+      throw new Error(`Please provide a valid ${fieldName} (2-50 letters, only Latin)`);
+    }
+    return true;
+  };
+
+  get firstName() {
     return this._firstName;
   };
-  set firstName(value){
-    if (!value || typeof value !== 'string' || value.length < 2 || value.length > 50 || !/^[A-Za-z]+$/.test(value)) {
-      throw new Error("Please provide a valid firstName (2-50 letters, only Latin)");
-    }
+
+  set firstName(value) {
+    this._validateName(value, 'firstName');
     this._firstName = value;
   };
 
   get lastName() {
-   return this._lastName;
+    return this._lastName;
   };
+
   set lastName(value) {
-    if (!value || typeof value !== 'string' || value.length < 2 || value.length > 50 || !/^[A-Za-z]+$/.test(value)) {
-       throw new Error("Please provide a valid lastName (2-50 letters, only Latin)");
-     }
-     this._lastName = value;
-   };
+    this._validateName(value, 'lastName');
+    this._lastName = value;
+  };
 
   get profession(){
    return this._profession;
