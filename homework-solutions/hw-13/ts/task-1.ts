@@ -34,7 +34,7 @@ type User = {
 //     - model (строка),
 //     - опциональное поле year (число).
 
-interface Car {
+interface ICar {
   brand: string;
   model: string;
   year?: number;
@@ -44,12 +44,12 @@ interface Car {
 //     - Интерфейса Address с полями street (строка), city (строка), и zipCode (число).
 //     - Интерфейса FullAddress, который наследует интерфейс Address и добавляет поле country (строка).
   
-interface Address {
+interface IAddress {
     street: string;
     city: string;
     zipCode: number;
   }
-  interface FullAddress extends Address {
+interface IFullAddress extends IAddress {
     country: string;
   }
 
